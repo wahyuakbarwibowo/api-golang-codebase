@@ -20,5 +20,7 @@ func main() {
 	// defer db.Close
 
 	server := app.NewServer(cfg, db)
-	if err := server
+	if err := server.Run(); err != nil {
+		log.Fatal(err)
+	}
 }
